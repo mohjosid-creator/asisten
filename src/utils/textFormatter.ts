@@ -1,6 +1,7 @@
 /**
- * Membersihkan tanda Markdown (# dan *) dan memastikan struktur jawaban
- * tersusun rapi dengan penomoran profesional.
+ * Memformat teks jawaban agar rapi sesuai standar penulisan profesional Bahasa Indonesia:
+ * - Menghapus simbol Markdown mentah (# dan *)
+ * - Menggabungkan paragraf, penomoran untuk poin/langkah utama, serta poin (•) untuk rincian penting
  */
 export function formatProfessionalNumberedText(raw: string): string {
   if (!raw) return "";
@@ -15,27 +16,18 @@ export function formatProfessionalNumberedText(raw: string): string {
   text = text.replace(/\*\*([^*\n]+)\*\*/g, "$1");
   text = text.replace(/\*([^*\n]+)\*/g, "$1");
 
-  // Hilangkan sisa karakter # atau * yang masih tersisa
-  text = text.replace(/[*#]/g, "");
-
-  // Ubah bullet list (- atau •) menjadi penomoran berurutan per blok
+  // Ubah bullet list markdown (- atau *) di awal baris menjadi poin tipografi yang bersih (•)
   const lines = text.split("\n");
   const outputLines: string[] = [];
-  let bulletCounter = 0;
 
   for (const line of lines) {
-    const bulletMatch = line.match(/^(\s*)[•\-]\s+(.*)$/);
+    const bulletMatch = line.match(/^(\s*)[*\-•]\s+(.*)$/);
     if (bulletMatch) {
-      bulletCounter += 1;
       const indent = bulletMatch[1].length >= 2 ? "   " : "";
-      outputLines.push(`${indent}${bulletCounter}. ${bulletMatch[2].trim()}`);
+      const cleanBody = bulletMatch[2].replace(/[*#]/g, "").trim();
+      outputLines.push(`${indent}• ${cleanBody}`);
     } else {
-      if (line.trim() === "") {
-        bulletCounter = 0;
-      } else if (/^\d+\.\s+/.test(line.trim())) {
-        bulletCounter = 0;
-      }
-      outputLines.push(line);
+      outputLines.push(line.replace(/[*#]/g, ""));
     }
   }
 

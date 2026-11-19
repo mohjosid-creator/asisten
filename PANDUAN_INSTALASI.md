@@ -180,15 +180,20 @@ python -m uv sync --project integrations/livekit --python 3.13
 4. Setelah terpasang, fitur **Bacakan TTS Offline (ID)** di Mode Offline Penuh akan berbicara memakai suara lokal sistem tanpa internet.
 
 ### B. Kloning Modul Pendukung Neuro-Orkestrator Sesuai Bidang
-Di dalam aplikasi tersedia menu **Neuro-Orkestrator** yang memisahkan **41 repositori** ke dalam **8 bidang keahlian**:
-1. Orkestrasi Agen & Perencanaan Tugas
+Di dalam aplikasi tersedia menu **Neuro-Orkestrator** yang memisahkan **58 repositori** ke dalam **11 bidang keahlian**:
+1. Orkestrasi Agen, Gateway Model (`sub2api`) & Perencanaan Tugas
 2. Rekayasa Perangkat Lunak & Otomasi Kode
 3. Keamanan Siber, Privasi & OSINT
 4. Simulasi Neuro, Jaringan Terdistribusi & Observabilitas
 5. Otomasi Desktop Windows, Suara (`VocalFlow-windows`) & Basis Data MySQL
-6. Persona AI (`personaforge`, `forge-skill`), Media & Presentasi (`ppt-master`)
+6. Persona AI (`personaforge`, `forge-skill`), Kebiasaan (`Constant`) & Presentasi (`ppt-master`)
 7. Riset Berita, Radar AI & Layanan Publik (`MAYA-AI`)
 8. Otomasi Bot & Ekosistem Telegram
+9. Pengujian Keamanan Web & Bug Bounty Otonom (`X5Sentry`, `cmdmap`, `GateForge`, `Agent389`, `HellCorp`, `Agentic-Bug-Hunter`, `public-skills-builder`)
+10. Audit Kode AI, Keamanan Web3 & Smart Contract (`AXguard`, `web3-bug-bounty-hunting-ai-skills`, `vandal`)
+11. Operasi Keamanan Terotorisasi & Deteksi Ancaman Jaringan (`Spectre`, `Hinln/ARTEX`, `failsafe-security/artex`, `panda0x123/artex-ymh`, `vc-strike`)
+
+> **Catatan Etika & Keamanan:** Gunakan modul pengujian keamanan, *bug bounty*, lab rentan (`HellCorp`), serta alat operasi terotorisasi (`ARTEX`, `vc-strike`) secara bertanggung jawab hanya pada lingkungan lab pribadi atau sistem dengan izin resmi tertulis.
 
 Anda dapat menyalin perintah `gh repo clone <owner/repo>` per bidang langsung dari menu **Neuro-Orkestrator** sesuai kebutuhan proyek Anda.
 

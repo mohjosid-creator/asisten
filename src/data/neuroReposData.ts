@@ -20,12 +20,12 @@ export const NEURO_DOMAINS: NeuroDomain[] = [
   {
     id: "orkestrasi-agen",
     number: "01",
-    name: "Orkestrasi Agen & Perencanaan Tugas",
-    shortName: "Orkestrasi Agen",
+    name: "Orkestrasi Agen, Gateway Model & Perencanaan Tugas",
+    shortName: "Orkestrasi & Gateway",
     description:
-      "Mengurai tujuan besar menjadi langkah terstruktur, memilih agen spesialis, meninjau rencana sebelum eksekusi, dan memantau tim agen.",
+      "Mengurai tujuan besar menjadi langkah terstruktur, menyatukan rute akses multi-model AI, meninjau rencana sebelum eksekusi, dan memantau tim agen.",
     orchestrationFocus:
-      "Pemecahan tugas multi-langkah, koordinasi tim agen, anotasi rencana, dan modularisasi skill.",
+      "Pemecahan tugas multi-langkah, routing gateway API multi-model, anotasi rencana, dan modularisasi skill.",
     keywords: [
       "rencana",
       "orkestrasi",
@@ -37,6 +37,10 @@ export const NEURO_DOMAINS: NeuroDomain[] = [
       "tim",
       "prioritas",
       "jadwal",
+      "sub2api",
+      "gateway",
+      "api",
+      "routing",
     ],
     repos: [
       {
@@ -80,6 +84,12 @@ export const NEURO_DOMAINS: NeuroDomain[] = [
         name: "Knowledge Work Plugins",
         roleInJarvis: "Plugin produktivitas untuk menyusun riset, dokumen, dan alur kerja pengetahuan.",
         keywords: ["pengetahuan", "plugin", "dokumen", "riset"],
+      },
+      {
+        repo: "Hinln/sub2api",
+        name: "Sub2API Multi-Model Relay",
+        roleInJarvis: "Layanan gateway terpadu untuk menyatukan dan merutekan akses model Claude, OpenAI, Gemini, dan Grok.",
+        keywords: ["sub2api", "relay", "gateway", "routing", "subscription"],
       },
     ],
   },
@@ -326,12 +336,12 @@ export const NEURO_DOMAINS: NeuroDomain[] = [
   {
     id: "persona-kreatif",
     number: "06",
-    name: "Persona AI, Pembentukan Skill & Presentasi",
-    shortName: "Persona & Presentasi",
+    name: "Persona AI, Kebiasaan Produktif & Presentasi",
+    shortName: "Persona & Produktivitas",
     description:
-      "Membentuk karakter/persona agen yang konsisten di Ollama maupun LangGraph, membuat presentasi PowerPoint otomatis, dan mengolah media lokal.",
+      "Membentuk karakter agen yang konsisten, melacak kebiasaan dan wawasan hidup harian (Constant), membuat presentasi PowerPoint, dan mengolah media lokal.",
     orchestrationFocus:
-      "Kalibrasi persona asisten, distilasi gaya komunikasi, pembuatan slide .pptx, dan pipeline media lokal.",
+      "Kalibrasi persona asisten, pelacakan kebiasaan & konsistensi harian, pembuatan slide .pptx, dan pipeline media lokal.",
     keywords: [
       "persona",
       "gaya",
@@ -343,6 +353,10 @@ export const NEURO_DOMAINS: NeuroDomain[] = [
       "video",
       "media",
       "forge",
+      "kebiasaan",
+      "habit",
+      "constant",
+      "konsistensi",
     ],
     repos: [
       {
@@ -374,6 +388,12 @@ export const NEURO_DOMAINS: NeuroDomain[] = [
         name: "Awesome Gemini 4 Argon Videos",
         roleInJarvis: "Referensi rekayasa prompt generasi video dan alur kreatif multimodal.",
         keywords: ["video", "prompt", "gemini"],
+      },
+      {
+        repo: "projecthellhound/Constant",
+        name: "Constant (Habit & Insights)",
+        roleInJarvis: "Asisten pengelola kebiasaan, konsistensi harian, dan wawasan produktivitas berbasis TypeScript.",
+        keywords: ["constant", "habit", "kebiasaan", "konsistensi", "produktivitas"],
       },
     ],
   },
@@ -445,6 +465,173 @@ export const NEURO_DOMAINS: NeuroDomain[] = [
         name: "Telegram Reseller Bot",
         roleInJarvis: "Otomatisasi proses transaksi dan verifikasi layanan bot Telegram.",
         keywords: ["reseller", "otomatis", "telegram"],
+      },
+    ],
+  },
+  {
+    id: "pengujian-web-bounty",
+    number: "09",
+    name: "Pengujian Keamanan Web & Bug Bounty Otonom",
+    shortName: "Bug Bounty & WebSec",
+    description:
+      "Perangkat pengujian keamanan aplikasi web dan direktori secara otonom untuk XSS, command injection, SSRF, LDAP, pembangun skill bug bounty, serta lab pelatihan legal.",
+    orchestrationFocus:
+      "Pemetaan permukaan serangan web, verifikasi kerentanan bertingkat (XSS, CMDi, SSRF, LDAP), dan pembuatan skill bug bounty dari laporan publik.",
+    keywords: [
+      "xss",
+      "ssrf",
+      "command injection",
+      "cmdmap",
+      "ldap",
+      "bug bounty",
+      "bounty",
+      "x5sentry",
+      "gateforge",
+      "agent389",
+      "hellcorp",
+      "hackerone",
+      "hunter",
+    ],
+    repos: [
+      {
+        repo: "projecthellhound/X5Sentry",
+        name: "X5Sentry (Autonomous XSS)",
+        roleInJarvis: "Pemetaan permukaan serangan XSS, analisis karakter yang bertahan, dan validasi via browser headless.",
+        keywords: ["xss", "browser", "sentry", "validasi"],
+      },
+      {
+        repo: "projecthellhound/cmdmap",
+        name: "CMDmap (Command Injection)",
+        roleInJarvis: "Deteksi command injection bertingkat untuk meminimalkan false positive dan menguji bypass filter web.",
+        keywords: ["cmdmap", "command", "injection", "bypass"],
+      },
+      {
+        repo: "projecthellhound/GateForge",
+        name: "GateForge (SSRF Agent)",
+        roleInJarvis: "Agen semi-otonom untuk menemukan dan memverifikasi celah Server-Side Request Forgery (SSRF).",
+        keywords: ["ssrf", "gateforge", "jaringan"],
+      },
+      {
+        repo: "projecthellhound/Agent389",
+        name: "Agent389 (LDAP Toolkit)",
+        roleInJarvis: "Toolkit otonom untuk pengujian dan audit keamanan layanan direktori LDAP.",
+        keywords: ["ldap", "direktori", "agent389"],
+      },
+      {
+        repo: "projecthellhound/HellCorp",
+        name: "HellCorp Enterprise Lab",
+        roleInJarvis: "Target lab web perusahaan yang sengaja rentan untuk simulasi pengujian dan pelatihan keamanan lokal.",
+        keywords: ["hellcorp", "lab", "latihan", "simulasi"],
+      },
+      {
+        repo: "awarexone/Agentic-Bug-Hunter",
+        name: "Agentic Bug Hunter",
+        roleInJarvis: "Toolkit berburu bug berbasis AI yang dapat dijalankan secara fleksibel dengan atau tanpa langganan.",
+        keywords: ["bug", "hunter", "agentic", "bounty"],
+      },
+      {
+        repo: "awarexone/public-skills-builder",
+        name: "Public Skills Builder (18 Vuln)",
+        roleInJarvis: "Menghasilkan skill bug bounty dari laporan publik HackerOne dan writeup GitHub untuk 18 kelas kerentanan.",
+        keywords: ["hackerone", "writeup", "skills", "18"],
+      },
+    ],
+  },
+  {
+    id: "audit-kode-web3",
+    number: "10",
+    name: "Audit Kode AI, Keamanan Web3 & Smart Contract",
+    shortName: "Audit Kode & Web3",
+    description:
+      "Pemindaian dan perbaikan kerentanan proyek kode sebelum rilis, ditambah analisis statis bytecode Ethereum dan skill audit smart contract DeFi.",
+    orchestrationFocus:
+      "Pemindaian kerentanan kode pra-rilis (pre-ship), analisis statis bytecode EVM, dan audit keamanan Web3/DeFi.",
+    keywords: [
+      "axguard",
+      "web3",
+      "smart contract",
+      "solidity",
+      "ethereum",
+      "evm",
+      "defi",
+      "vandal",
+      "bytecode",
+      "immunefi",
+      "pre-ship",
+    ],
+    repos: [
+      {
+        repo: "awarexone/AXguard",
+        name: "AXguard",
+        roleInJarvis: "Pemindaian dan perbaikan otomatis kerentanan keamanan pada proyek kode sebelum rilis produksi.",
+        keywords: ["axguard", "scan", "fix", "kode"],
+      },
+      {
+        repo: "awarexone/web3-bug-bounty-hunting-ai-skills",
+        name: "Web3 Bug Bounty AI Skills",
+        roleInJarvis: "18 skill audit smart contract berbasis 2.749 laporan Immunefi dan 681 reproduksi DeFiHack.",
+        keywords: ["web3", "immunefi", "defi", "smart contract"],
+      },
+      {
+        repo: "usyd-blockchain/vandal",
+        name: "Vandal (EVM Bytecode Analyzer)",
+        roleInJarvis: "Framework analisis program statis untuk membongkar dan memeriksa bytecode smart contract Ethereum.",
+        keywords: ["vandal", "ethereum", "bytecode", "statis"],
+      },
+    ],
+  },
+  {
+    id: "operasi-keamanan-jaringan",
+    number: "11",
+    name: "Operasi Keamanan Terotorisasi & Deteksi Ancaman Jaringan",
+    shortName: "Ops Keamanan & DNS",
+    description:
+      "Deteksi ancaman DNS (tunneling/eksfiltrasi/C2), platform pengujian penetrasi otonom ARTEX terikat lokal, serta pengujian vCenter terotorisasi.",
+    orchestrationFocus:
+      "Pemantauan anomali DNS, orkestrasi pengujian penetrasi terotorisasi berbasis ARTEX, dan validasi CVE infrastruktur virtualisasi.",
+    keywords: [
+      "artex",
+      "spectre",
+      "dns",
+      "tunneling",
+      "eksfiltrasi",
+      "c2",
+      "vcenter",
+      "vmware",
+      "vc-strike",
+      "red team",
+      "penetrasi",
+    ],
+    repos: [
+      {
+        repo: "projecthellhound/Spectre",
+        name: "Spectre (DNS Threat Detection)",
+        roleInJarvis: "Deteksi cerdas anomali DNS untuk mengungkap tunneling, eksfiltrasi data, dan komunikasi C2 terselubung.",
+        keywords: ["spectre", "dns", "tunneling", "c2", "anomali"],
+      },
+      {
+        repo: "Hinln/ARTEX",
+        name: "ARTEX (v0.3.15 Core)",
+        roleInJarvis: "Sumber referensi platform pengujian penetrasi otonom ARTEX v0.3.15 (AGPL-3.0).",
+        keywords: ["artex", "penetrasi", "otonom"],
+      },
+      {
+        repo: "failsafe-security/artex",
+        name: "ARTEX FailSafe Local",
+        roleInJarvis: "Distribusi ARTEX terikat lokal (locally bound) untuk lingkungan pengujian terisolasi yang terkendali.",
+        keywords: ["artex", "failsafe", "lokal"],
+      },
+      {
+        repo: "panda0x123/artex-ymh",
+        name: "ARTEX-YMH Pipeline",
+        roleInJarvis: "Varian alur pengujian keamanan menyeluruh dari perimeter luar ke jaringan internal terotorisasi.",
+        keywords: ["artex", "internal", "perimeter"],
+      },
+      {
+        repo: "panda0x123/vc-strike",
+        name: "VC-Strike (Authorized vCenter Suite)",
+        roleInJarvis: "Suite pengujian terotorisasi untuk audit CVE VMware vCenter (CVE-2026-59310 & CVE-2026-59309) via GUI dan CLI.",
+        keywords: ["vcenter", "vmware", "cve", "strike"],
       },
     ],
   },

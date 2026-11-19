@@ -199,7 +199,7 @@ export default function NeuroOrchestratorView({
               </h1>
             </div>
             <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-              Seluruh repositori dipisahkan ke dalam {NEURO_DOMAINS.length} bidang keahlian agar Jarvis dapat
+              Seluruh repositori dipisahkan ke dalam {NEURO_DOMAINS.length} bidang keahlian agar SISTER dapat
               berpikir lebih terarah saat menyusun rencana tugas, memilih alat, dan menyiapkan perintah eksekusi.
             </p>
           </div>
@@ -443,7 +443,7 @@ export default function NeuroOrchestratorView({
                           : "border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-800"
                       }`}
                     >
-                      {isActive ? "Aktif di Otak Jarvis" : "Nonaktif"}
+                      {isActive ? "Aktif di Otak SISTER" : "Nonaktif"}
                     </button>
                   </div>
                 </div>

@@ -61,7 +61,7 @@ export default function DocumentsView({
     onAddDocument({
       title: docTitle.trim(),
       kind: docKind,
-      folder: "C:\\Users\\Dokumen\\Jarvis",
+      folder: "C:\\Users\\Dokumen\\SISTER",
       content: docContent.trim(),
     });
     setDocTitle("");
@@ -276,7 +276,7 @@ export default function DocumentsView({
               rows={3}
               value={memContent}
               onChange={(e) => setMemContent(e.target.value)}
-              placeholder="Fakta atau preferensi yang ingin selalu diingat oleh Jarvis saat Anda bertanya..."
+              placeholder="Fakta atau preferensi yang ingin selalu diingat oleh SISTER saat Anda bertanya..."
               className="w-full px-3 py-2 text-sm rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-600 resize-y"
             />
             <button

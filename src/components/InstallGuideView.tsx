@@ -14,6 +14,7 @@ import {
   PREREQUISITES,
   TROUBLESHOOT_ITEMS,
 } from "../data/installGuideData";
+import { NEURO_DOMAINS, TOTAL_NEURO_REPOS } from "../data/neuroReposData";
 
 const CHECKLIST_STORAGE_KEY = "jarvis_id_install_checklist";
 
@@ -134,11 +135,11 @@ JARVIS_MAX_STEPS=8`;
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
           <div className="space-y-1.5 max-w-3xl">
             <h1 className="text-xl sm:text-2xl font-bold tracking-tight text-slate-900 dark:text-slate-100">
-              Panduan Instalasi Lokal Jarvis (mschr703/jarvis-local-assistant)
+              Panduan Instalasi Lokal SISTER (mschr703/jarvis-local-assistant)
             </h1>
             <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
               Ikuti panduan langkah demi langkah berbahasa Indonesia ini untuk mengunduh dan
-              menjalankan Jarvis secara penuh di Windows 11 menggunakan model lokal Ollama tanpa biaya API.
+              menjalankan sistem lokal SISTER secara penuh di Windows 11 menggunakan model lokal Ollama tanpa biaya API.
             </p>
           </div>
 
@@ -335,8 +336,8 @@ JARVIS_MAX_STEPS=8`;
               <li>Buka Settings di Windows 11 lalu pilih menu Time &amp; language.</li>
               <li>Pilih Speech lalu klik Add voices di bagian Manage voices.</li>
               <li>Cari Indonesian (Indonesia) kemudian klik Add dan tunggu hingga selesai terpasang.</li>
-              <li>Setelah terpasang, Jarvis Mode Offline Penuh otomatis memakai suara lokal tersebut.</li>
-              <li>Untuk kloning modul tambahan per bidang keahlian (41 repositori), buka menu Neuro-Orkestrator dan klik Salin Clone Bidang.</li>
+              <li>Setelah terpasang, SISTER Mode Offline Penuh otomatis memakai suara lokal tersebut.</li>
+              <li>Untuk kloning modul tambahan per bidang keahlian ({TOTAL_NEURO_REPOS} repositori dalam {NEURO_DOMAINS.length} bidang), buka menu Neuro-Orkestrator dan klik Salin Clone Bidang.</li>
             </ol>
           </article>
         </div>

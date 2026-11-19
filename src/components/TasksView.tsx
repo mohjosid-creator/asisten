@@ -293,7 +293,7 @@ export default function TasksView({
         </div>
 
         <p className="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
-          Menyusun blok waktu kerja bernomor secara otomatis berdasarkan prioritas tugas Anda, baik
+          Menyusun blok waktu kerja secara rapi berdasarkan prioritas tugas Anda, baik
           di Mode Online maupun Mode Offline Penuh.
         </p>
 
@@ -378,7 +378,7 @@ export default function TasksView({
           </div>
         ) : (
           <div className="p-4 rounded-lg border border-dashed border-slate-200 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400 text-center">
-            Klik tombol di atas agar Jarvis mengatur prioritas tugas Anda ke dalam blok waktu bernomor.
+            Klik tombol di atas agar SISTER mengatur prioritas tugas Anda ke dalam blok waktu kerja.
           </div>
         )}
       </section>

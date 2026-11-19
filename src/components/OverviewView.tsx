@@ -48,15 +48,15 @@ export default function OverviewView({
       page: "neuro",
       title: `Neuro-Orkestrator (${TOTAL_NEURO_REPOS} Repositori · ${NEURO_DOMAINS.length} Bidang)`,
       description:
-        "Tingkatkan daya pikir Jarvis untuk mengorkestrasi tugas, rencana, dan perintah lintas bidang seperti Orkestrasi Agen, Rekayasa Kode, Keamanan Siber/CVE, Otomasi Windows/MySQL, hingga Telegram.",
+        "Tingkatkan daya pikir SISTER untuk mengorkestrasi tugas dan perintah lintas 11 bidang: Orkestrasi Agen & Gateway Sub2API, Rekayasa Kode, Keamanan Web/Bug Bounty, Audit Kode & Smart Contract Web3, Operasi Jaringan/DNS/ARTEX, Otomasi Windows/MySQL, hingga Kebiasaan Constant.",
       actionLabel: "Buka Neuro-Orkestrator",
       icon: Cpu,
     },
     {
       page: "chat",
-      title: "Chat Bernomor + Voice Google ID & TTS Offline",
+      title: "Chat Terstruktur + Voice Google ID & TTS Offline",
       description:
-        "Jawaban chat selalu tersusun dengan penomoran profesional tanpa simbol pagar atau bintang. Gunakan Voice Command Google ID saat online dan Voice TTS Bahasa Indonesia saat offline.",
+        "Jawaban chat tersusun rapi sesuai standar penulisan (penomoran langkah dan poin bagian penting) tanpa simbol pagar atau bintang. Gunakan Voice Command Google ID saat online dan Voice TTS Bahasa Indonesia saat offline.",
       actionLabel: "Mulai Percakapan",
       icon: MessageSquare,
     },
@@ -100,13 +100,13 @@ export default function OverviewView({
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
           <div className="max-w-2xl space-y-2.5">
             <p className="text-xs font-medium text-slate-500 dark:text-slate-400">
-              Adaptasi Bahasa Indonesia · Jarvis Local + {TOTAL_NEURO_REPOS} Modul Neuro
+              SISTER Edisi Bahasa Indonesia · {TOTAL_NEURO_REPOS} Modul Neuro
             </p>
             <h1 className="text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-slate-100 text-balance">
-              Selamat datang, {userName}. Jalankan asisten Anda dalam Mode Online maupun Offline Penuh.
+              Selamat datang, {userName}. Jalankan asisten SISTER dalam Mode Online maupun Offline Penuh.
             </h1>
             <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
-              Dilengkapi format jawaban bernomor profesional, Perintah Suara Google Indonesia saat
+              Dilengkapi format jawaban rapi sesuai standar penulisan, Perintah Suara Google Indonesia saat
               online, Voice TTS Bahasa Indonesia saat offline, serta orkestrator {NEURO_DOMAINS.length} bidang keahlian.
             </p>
           </div>
@@ -179,7 +179,7 @@ export default function OverviewView({
             </strong>
           </span>
           <span aria-hidden="true">·</span>
-          <span>Format Output: Penomoran Profesional (Tanpa # &amp; *)</span>
+          <span>Format Output: Rapi Standar Penulisan (Tanpa # &amp; *)</span>
         </div>
       </section>
 
@@ -218,7 +218,7 @@ export default function OverviewView({
 
       <section className="space-y-4">
         <h2 className="text-lg font-semibold text-slate-900 dark:text-slate-100">
-          Alur Kerja Utama Jarvis
+          Alur Kerja Utama SISTER
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {workflows.map((wf) => {

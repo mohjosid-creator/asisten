@@ -346,7 +346,7 @@ export default function ChatView({
       `Skill: ${activeSkill.name}`,
       "",
       ...activeConv.messages.map(
-        (m) => `${m.role === "assistant" ? "Jarvis" : userName} (${m.createdAt}):\n${m.content}\n`
+        (m) => `${m.role === "assistant" ? "SISTER" : userName} (${m.createdAt}):\n${m.content}\n`
       ),
     ];
     const blob = new Blob([lines.join("\n")], { type: "text/plain;charset=utf-8" });
@@ -591,7 +591,7 @@ export default function ChatView({
                       {cleanBody}
                     </div>
                     <div className="mt-1.5 flex flex-wrap items-center gap-2 text-[11px] text-slate-500 dark:text-slate-400 tabular-nums">
-                      <span>{isUser ? userName : "Jarvis"}</span>
+                      <span>{isUser ? userName : "SISTER"}</span>
                       <span aria-hidden="true">·</span>
                       <span>{msg.createdAt}</span>
                       {!isUser && (
@@ -634,7 +634,7 @@ export default function ChatView({
               {isSending && (
                 <div className="flex items-start">
                   <div className="border border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 rounded-xl px-4 py-3 text-sm text-slate-500 dark:text-slate-400">
-                    Jarvis sedang menyusun jawaban bernomor...
+                    SISTER sedang menyusun jawaban...
                   </div>
                 </div>
               )}
@@ -662,8 +662,9 @@ export default function ChatView({
                     Perintah Cepat Offline:
                   </span>
                   {[
-                    "Susun rencana orkestrasi keamanan & CVE",
-                    "Cek ringkasan arsitektur Jarvis Local",
+                    "Rencana audit XSS, SSRF & smart contract Web3",
+                    "Deteksi anomali DNS Spectre & gateway sub2api",
+                    "Cek ringkasan arsitektur SISTER Lokal",
                     "Siapkan langkah otomasi Windows & MySQL",
                   ].map((cmd) => (
                     <button

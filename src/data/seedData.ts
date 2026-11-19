@@ -28,6 +28,9 @@ export const DEFAULT_SETTINGS: AppSettings = {
     "persona-kreatif",
     "riset-berita-publik",
     "otomasi-telegram",
+    "pengujian-web-bounty",
+    "audit-kode-web3",
+    "operasi-keamanan-jaringan",
   ],
 };
 
@@ -35,15 +38,15 @@ export const CHAT_SKILLS: ChatSkill[] = [
   {
     id: "umum",
     name: "Asisten Pribadi Umum",
-    description: "Jawaban lugas, terstruktur dengan penomoran rapi, dan siap membantu tugas harian.",
-    prompt: "Berikan jawaban praktis, ringkas, dan terstruktur dengan penomoran yang jelas.",
+    description: "Jawaban lugas, tersusun rapi sesuai standar penulisan, dan siap membantu tugas harian.",
+    prompt: "Berikan jawaban praktis, ringkas, dan tersusun rapi dengan pengantar singkat serta poin penting atau penomoran seperlunya.",
   },
   {
     id: "ringkas",
     name: "Ringkas & Inti Sari",
     description: "Merangkum catatan panjang menjadi poin tindakan utama.",
     prompt:
-      "Fokus merangkum inti pembicaraan dalam maksimal 5 poin bernomor beserta langkah tindak lanjut.",
+      "Fokus merangkum inti pembicaraan secara ringkas dengan poin penting dan langkah tindak lanjut.",
   },
   {
     id: "dokumen",
@@ -64,10 +67,10 @@ export const CHAT_SKILLS: ChatSkill[] = [
 export const INITIAL_DOCUMENTS: LocalDocument[] = [
   {
     id: "doc-1",
-    title: "Ringkasan Arsitektur Jarvis Local.md",
+    title: "Ringkasan Arsitektur SISTER Lokal.md",
     kind: "md",
-    folder: "C:\\Users\\Dokumen\\Jarvis",
-    content: `Jarvis Local Assistant (mschr703/jarvis-local-assistant) adalah asisten pribadi berbasis Windows 11 yang berjalan secara lokal.
+    folder: "C:\\Users\\Dokumen\\SISTER",
+    content: `SISTER (berbasis arsitektur mschr703/jarvis-local-assistant) adalah asisten pribadi berbasis Windows 11 yang berjalan secara lokal.
 Komponen utama:
 1. Backend API: Python 3.13 + FastAPI pada port 127.0.0.1:8765 dengan database SQLite di %LOCALAPPDATA%\\JarvisLocal.
 2. Antarmuka Web: React + Vite pada port 127.0.0.1:5173.
@@ -105,7 +108,7 @@ export const INITIAL_MEMORIES: SavedMemory[] = [
   },
   {
     id: "mem-2",
-    title: "Lokasi Data Jarvis di Windows",
+    title: "Lokasi Data Lokal di Windows",
     content:
       "Pada versi desktop Windows asli, seluruh data privat, database SQLite, dan profil browser Edge disimpan di %LOCALAPPDATA%\\JarvisLocal di luar folder repositori.",
     source: "Dokumentasi Resmi Repositori",
@@ -124,19 +127,19 @@ export const INITIAL_MEMORIES: SavedMemory[] = [
 export const INITIAL_CONVERSATIONS: ChatConversation[] = [
   {
     id: "conv-1",
-    title: "Pengenalan Jarvis Edisi Bahasa Indonesia",
+    title: "Pengenalan SISTER Bahasa Indonesia",
     skillId: "umum",
     updatedAt: "2026-11-18 11:00",
     messages: [
       {
         id: "msg-1",
         role: "assistant",
-        content: `1. Selamat datang di Jarvis Asisten Lokal edisi Bahasa Indonesia yang diadaptasi dari mschr703/jarvis-local-assistant.
-2. Berikut kemampuan yang langsung dapat Anda gunakan:
-   2.1 Chat dengan penomoran profesional (bebas tanda pagar dan bintang) beserta Perintah Suara Google Indonesia saat mode online.
-   2.2 Mode Offline Penuh dengan Mesin Neuro-Orkestrator Lokal dan Voice TTS Offline berbahasa Indonesia.
-   2.3 Modul 41 repositori Neuro-Orkestrator yang dipisahkan menjadi 8 bidang keahlian untuk merancang rencana dan perintah tugas.
-   2.4 Pengelolaan Dokumen, Memori, Draf Tulisan, Tugas Harian, dan Panduan Instalasi Windows lengkap.`,
+        content: `Selamat datang di SISTER, asisten pribadi berbahasa Indonesia yang dirancang untuk bekerja rapi di Mode Online maupun Mode Offline Penuh.
+
+Kemampuan utama yang siap Anda gunakan:
+• Chat Profesional dan Suara: Jawaban disusun rapi sesuai kaidah penulisan standar tanpa simbol pagar atau bintang, dilengkapi Perintah Suara Google ID saat online dan Voice TTS Bahasa Indonesia saat offline.
+• Neuro-Orkestrator (41 Repositori): Memisahkan kemampuan berpikir ke dalam 8 bidang keahlian untuk merencanakan tugas dan perintah secara terarah.
+• Manajemen Dokumen, Memori, Draf, dan Tugas: Kelola catatan lokal, susun email/esai sesuai gaya bahasa Anda, serta atur jadwal harian dengan Mode Fokus.`,
         createdAt: "11:00",
       },
     ],

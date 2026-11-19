@@ -50,8 +50,27 @@ function loadInitialState(): WorkspaceState {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (raw) {
       const parsed = JSON.parse(raw) as Partial<WorkspaceState>;
+      const savedDomainIds = parsed.settings?.activeNeuroDomainIds;
+      const newDomainIds = [
+        "pengujian-web-bounty",
+        "audit-kode-web3",
+        "operasi-keamanan-jaringan",
+      ];
+      const mergedDomains = savedDomainIds
+        ? Array.from(
+            new Set([
+              ...savedDomainIds,
+              ...(savedDomainIds.length >= 8 ? newDomainIds : []),
+            ])
+          )
+        : DEFAULT_SETTINGS.activeNeuroDomainIds;
+
       return {
-        settings: { ...DEFAULT_SETTINGS, ...(parsed.settings ?? {}) },
+        settings: {
+          ...DEFAULT_SETTINGS,
+          ...(parsed.settings ?? {}),
+          activeNeuroDomainIds: mergedDomains,
+        },
         conversations: parsed.conversations?.length
           ? parsed.conversations
           : INITIAL_CONVERSATIONS,
@@ -320,7 +339,7 @@ export default function App() {
       <div className="flex-1 min-w-0 flex flex-col">
         <header className="h-16 px-6 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 flex items-center justify-between gap-8">
           <div className="flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400 min-w-0">
-            <span className="truncate">Jarvis Lokal</span>
+            <span className="truncate">SISTER</span>
             <span aria-hidden="true">/</span>
             <span className="font-semibold text-slate-900 dark:text-slate-100 truncate">
               {PAGE_TITLES[activePage]}
@@ -503,6 +522,11 @@ export default function App() {
 
           {activePage === "install" && <InstallGuideView />}
         </main>
+
+        <footer className="px-6 py-4 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 text-xs text-slate-500 dark:text-slate-400 flex items-center justify-between gap-4">
+          <span>SISTER · Asisten Lokal Bahasa Indonesia</span>
+          <span className="font-medium text-slate-700 dark:text-slate-300">By MASJOE</span>
+        </footer>
       </div>
 
       {showSettings && (

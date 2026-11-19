@@ -36,7 +36,7 @@ export default function SettingsModal({
   const handleTestTts = () => {
     setTestNotice(null);
     speakIndonesianText(
-      "Halo, ini adalah uji coba suara Jarvis berbahasa Indonesia untuk mode offline dan online.",
+      "Halo, ini adalah uji coba suara SISTER berbahasa Indonesia untuk mode offline dan online.",
       {
         preferredVoiceName: draft.ttsVoiceName,
         rate: draft.ttsRate,

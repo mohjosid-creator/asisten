@@ -65,58 +65,51 @@ export function runOfflineChat(params: {
   const pendingTasks = tasks.filter((t) => !t.completed);
 
   const lines: string[] = [
-    `1. Ringkasan Pemrosesan Lokal (Mode Offline Penuh)`,
-    `   1.1 Permintaan Anda: "${query.trim()}"`,
-    `   1.2 Status mesin: Berjalan 100% offline menggunakan Mesin Neuro-Orkestrator Lokal tanpa koneksi internet.`,
+    `Ringkasan Pemrosesan Lokal SISTER (Mode Offline Penuh)`,
+    `Permintaan "${query.trim()}" diproses sepenuhnya secara lokal melalui Mesin Neuro-Orkestrator SISTER tanpa koneksi internet.`,
     ``,
-    `2. Analisis Bidang Keahlian Neuro yang Terpilih`,
+    `1. Bidang Keahlian Neuro yang Relevan`,
   ];
 
-  matchedDomains.forEach((domain, idx) => {
+  matchedDomains.forEach((domain) => {
     const repoNames = domain.repos
       .slice(0, 3)
       .map((r) => r.repo)
       .join(", ");
     lines.push(
-      `   2.${idx + 1} Bidang ${domain.name}: ${domain.orchestrationFocus} Modul relevan: ${repoNames}.`
+      `   • ${domain.name}: ${domain.orchestrationFocus} (Modul: ${repoNames})`
     );
   });
 
   lines.push(``);
-  lines.push(`3. Temuan Konteks Lokal Anda`);
+  lines.push(`2. Konteks Lokal yang Ditemukan`);
   if (matchedDocs.length > 0 || matchedMemories.length > 0) {
-    let refIndex = 1;
     for (const d of matchedDocs.slice(0, 3)) {
       const snippet = d.content.split("\n")[0]?.slice(0, 140) ?? "";
-      lines.push(`   3.${refIndex} Dokumen ${d.title}: ${snippet}`);
-      refIndex += 1;
+      lines.push(`   • Dokumen ${d.title}: ${snippet}`);
     }
     for (const m of matchedMemories.slice(0, 3)) {
-      lines.push(`   3.${refIndex} Memori ${m.title}: ${m.content}`);
-      refIndex += 1;
+      lines.push(`   • Memori ${m.title}: ${m.content}`);
     }
   } else {
     lines.push(
-      `   3.1 Belum ada catatan dokumen yang memuat kata kunci spesifik tersebut. Anda dapat menambahkannya di menu Dokumen dan Memori.`
-    );
-    lines.push(
-      `   3.2 Tugas aktif yang tercatat saat ini berjumlah ${pendingTasks.length} item.`
+      `   • Belum ditemukan catatan dokumen dengan kata kunci terkait; terdapat ${pendingTasks.length} tugas aktif pada daftar kerja Anda.`
     );
   }
 
   lines.push(``);
-  lines.push(`4. Rencana Tindakan dan Perintah yang Disarankan`);
+  lines.push(`3. Langkah Tindak Lanjut yang Disarankan`);
   const topDomain = matchedDomains[0];
   if (topDomain) {
     const primaryRepo = topDomain.repos[0];
     lines.push(
-      `   4.1 Tentukan ruang kerja target di Windows PowerShell lalu siapkan modul bidang ${topDomain.shortName}.`
+      `   1. Siapkan direktori kerja di Windows PowerShell untuk bidang ${topDomain.shortName}.`
     );
     lines.push(
-      `   4.2 Perintah kloning modul utama: gh repo clone ${primaryRepo.repo}`
+      `   2. Jalankan perintah kloning modul utama: gh repo clone ${primaryRepo.repo}`
     );
     lines.push(
-      `   4.3 Aktifkan mode online apabila Anda ingin menjabarkan analisis generatif lebih dalam menggunakan model AI cloud.`
+      `   3. Beralih ke Mode Online kapan saja jika memerlukan penjabaran analisis mendalam.`
     );
   }
 
@@ -133,40 +126,38 @@ export function runOfflineOrchestration(params: {
   const openTasks = tasks.filter((t) => !t.completed).slice(0, 4);
 
   const lines: string[] = [
-    `1. Tujuan Orkestrasi Tugas (Mode Offline Penuh)`,
-    `   1.1 Sasaran utama: ${goal.trim()}`,
-    `   1.2 Jumlah bidang neuro aktif: ${domains.length} bidang prioritas.`,
+    `Rencana Orkestrasi SISTER (Mode Offline Penuh)`,
+    `Sasaran utama: ${goal.trim()}. SISTER memetakan ${domains.length} bidang keahlian prioritas untuk menyusun langkah kerja dan perintah eksekusi.`,
     ``,
-    `2. Pembagian Tugas per Bidang Keahlian`,
+    `1. Pembagian Kemampuan per Bidang`,
   ];
 
   domains.forEach((domain, idx) => {
-    const num = idx + 1;
-    lines.push(`   2.${num} ${domain.name}`);
-    lines.push(`       Fokus eksekusi: ${domain.orchestrationFocus}`);
-    domain.repos.slice(0, 3).forEach((repo, rIdx) => {
+    lines.push(`   ${idx + 1}. ${domain.name}`);
+    lines.push(`      Fokus: ${domain.orchestrationFocus}`);
+    domain.repos.slice(0, 3).forEach((repo) => {
       lines.push(
-        `       Langkah 2.${num}.${rIdx + 1}: Gunakan ${repo.name} (${repo.repo}) untuk ${repo.roleInJarvis}`
+        `      • ${repo.name} (${repo.repo}): ${repo.roleInJarvis}`
       );
     });
   });
 
   lines.push(``);
-  lines.push(`3. Daftar Perintah Siap Jalankan di PowerShell`);
+  lines.push(`2. Urutan Perintah Siap Jalankan di PowerShell`);
   let cmdStep = 1;
   domains.forEach((domain) => {
     domain.repos.slice(0, 2).forEach((repo) => {
-      lines.push(`   3.${cmdStep} gh repo clone ${repo.repo}`);
+      lines.push(`   ${cmdStep}. gh repo clone ${repo.repo}`);
       cmdStep += 1;
     });
   });
 
   if (openTasks.length > 0) {
     lines.push(``);
-    lines.push(`4. Sinkronisasi dengan Tugas Aktif Anda`);
-    openTasks.forEach((t, idx) => {
+    lines.push(`3. Keterkaitan dengan Tugas Aktif`);
+    openTasks.forEach((t) => {
       lines.push(
-        `   4.${idx + 1} ${t.title} (Prioritas ${t.priority}, Tenggat: ${t.dueDate})`
+        `   • ${t.title} (Prioritas ${t.priority}, Tenggat: ${t.dueDate})`
       );
     });
   }
@@ -187,28 +178,29 @@ export function runOfflineDailyPlan(params: {
   );
 
   const lines: string[] = [
-    `1. Rencana Harian Lokal (Mode Offline Penuh)`,
-    `   1.1 Total blok fokus tersedia: ${focusMinutes} menit.`,
-    `   1.2 Catatan kondisi hari ini: ${note || "Tidak ada catatan tambahan"}.`,
+    `Rencana Harian SISTER (Mode Offline Penuh)`,
+    `Alokasi blok fokus tersedia sebesar ${focusMinutes} menit dengan catatan kondisi: ${note || "Tidak ada catatan tambahan"}.`,
     ``,
-    `2. Urutan Eksekusi Tugas Berdasarkan Prioritas`,
+    `1. Urutan Prioritas Tugas`,
   ];
 
   if (sorted.length === 0) {
-    lines.push(`   2.1 Seluruh tugas sudah selesai. Gunakan waktu untuk meninjau memori atau dokumentasi.`);
+    lines.push(
+      `   • Seluruh tugas telah selesai. Anda dapat meninjau dokumen atau memperbarui memori proyek.`
+    );
   } else {
     const perTask = Math.max(20, Math.floor(focusMinutes / sorted.length));
     sorted.forEach((t, idx) => {
       lines.push(
-        `   2.${idx + 1} ${t.title} (Prioritas ${t.priority}, estimasi ${perTask} menit, tenggat: ${t.dueDate})`
+        `   ${idx + 1}. ${t.title} (Prioritas ${t.priority}, estimasi ${perTask} menit, tenggat: ${t.dueDate})`
       );
     });
   }
 
   lines.push(``);
-  lines.push(`3. Rekomendasi Ritme Kerja`);
-  lines.push(`   3.1 Terapkan blok fokus 45 menit kerja diikuti jeda istirahat 10 menit.`);
-  lines.push(`   3.2 Aktifkan Mode Fokus di Jarvis agar tugas berprioritas rendah ditunda sementara.`);
+  lines.push(`2. Catatan Ritme Kerja`);
+  lines.push(`   • Terapkan sesi fokus 45 menit diikuti jeda istirahat 10 menit.`);
+  lines.push(`   • Aktifkan Mode Fokus di SISTER agar pengingat berprioritas rendah ditunda sementara.`);
 
   return formatProfessionalNumberedText(lines.join("\n"));
 }

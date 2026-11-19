@@ -57,11 +57,11 @@ export default function Sidebar({
             className="text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-600 rounded-md"
           >
             <span className="block text-base font-bold tracking-tight text-slate-900 dark:text-slate-100 whitespace-nowrap">
-              Jarvis Lokal
+              SISTER
             </span>
           </button>
           <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
-            Edisi Bahasa Indonesia · Windows &amp; Web
+            Asisten Lokal · Bahasa Indonesia
           </p>
         </div>
 

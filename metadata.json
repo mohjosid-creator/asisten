@@ -1,0 +1,6 @@
+{
+  "name": "Jarvis Asisten Lokal",
+  "description": "Asisten AI pribadi lokal berbahasa Indonesia yang diadaptasi dari mschr703/jarvis-local-assistant, lengkap dengan panduan instalasi Windows berbahasa Indonesia.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
